@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -14,6 +15,6 @@ import java.util.List;
 public class CustomerController {
     @GetMapping
     public ResponseEntity<List<Long>> getCustomers() {
-        return ResponseEntity.status(HttpStatus.OK).body(new ArrayList<>());
+        return ResponseEntity.status(HttpStatus.OK).body(Arrays.asList(1l,5l,10l,29l));
     }
 }

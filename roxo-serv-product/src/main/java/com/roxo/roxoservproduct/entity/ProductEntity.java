@@ -38,6 +38,9 @@ public class ProductEntity {
         this.price = price;
     }
 
+    public ProductEntity() {
+    }
+
     public ProductEntity(ProductCreateUpdateDTO dto) {
         this.name = dto.getName();
         this.price = dto.getPrice();
