@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: roxo-serv-product
-          image: roxo-serv-product:1.0
+          image: guilheag/roxo-serv-product
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
           env:   # Setting Enviornmental Variables

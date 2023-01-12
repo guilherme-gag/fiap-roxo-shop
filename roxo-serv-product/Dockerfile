@@ -1,5 +1,13 @@
-FROM adoptopenjdk/openjdk11:latest
-USER spring:spring
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+FROM openjdk:17
+COPY src /home/app/src
+COPY pom.xml /home/app
+#RUN mvn -f /home/app/pom.xml clean package
+
+COPY target /home/app/target
+COPY target/roxo-serv-product-0.0.1-SNAPSHOT.jar ./roxo-serv-product-0.0.1.jar
+ENTRYPOINT ["java","-jar","/roxo-serv-product-0.0.1.jar"]
+
+#FROM openjdk:8
+#EXPOSE 8080
+#ADD target/roxo-serv-product.jar roxo-serv-product.jar
+#ENTRYPOINT ["java","-jar","/roxo-serv-product.jar"]
