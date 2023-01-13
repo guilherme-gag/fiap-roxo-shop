@@ -1,24 +1,13 @@
 package com.roxo.roxoservorder.dto;
 
-import com.roxo.roxoservorder.entity.OrderEntity;
+public class OrderCreateDTO {
 
-public class OrderDTO {
-
-    private Long id;
     private Long customerId;
     private String customerName;
     private Long productId;
     private String productName;
     private Double productPrice;
     private Long quantity;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Long getCustomerId() {
         return customerId;
@@ -68,17 +57,7 @@ public class OrderDTO {
         this.quantity = quantity;
     }
 
-    public OrderDTO() {
-    }
-
-    public OrderDTO(OrderEntity entity) {
-        this.id = entity.getId();
-        this.customerId = entity.getCustomerId();
-        this.customerName = entity.getCustomerName();
-        this.productId = entity.getProductId();
-        this.productName = entity.getProductName();
-        this.productPrice = entity.getProductPrice();
-        this.quantity = entity.getQuantity();
+    public OrderCreateDTO() {
     }
 
 }

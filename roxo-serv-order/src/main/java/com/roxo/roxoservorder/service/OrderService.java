@@ -1,9 +1,16 @@
 package com.roxo.roxoservorder.service;
 
+import com.roxo.roxoservorder.dto.OrderCreateDTO;
+import com.roxo.roxoservorder.dto.OrderDTO;
+
+import java.util.List;
+
 public interface OrderService {
-//    ProductDTO create(ProductCreateUpdateDTO createUpdateDTO);
-//    ProductDTO findById(Long id);
-//    List<ProductDTO> listAll();
-//    ProductDTO update(Long id, ProductCreateUpdateDTO createUpdateDTO);
-//    void delete(Long id);
+
+    OrderDTO create(OrderCreateDTO createUpdateDTO);
+    List<OrderDTO> listAll();
+    OrderDTO findById(Long id);
+    OrderDTO update(Long id, OrderCreateDTO createUpdateDTO);
+    void delete(Long id);
+
 }

@@ -1,9 +1,16 @@
-package com.roxo.roxoservorder.dto;
+package com.roxo.roxoservorder.entity;
 
-import com.roxo.roxoservorder.entity.OrderEntity;
+import com.roxo.roxoservorder.dto.OrderCreateDTO;
+import jakarta.persistence.*;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-public class OrderDTO {
+@Entity
+@Table(name = "TB_ORDER")
+@EntityListeners(AuditingEntityListener.class)
+public class OrderEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long customerId;
     private String customerName;
@@ -68,17 +75,17 @@ public class OrderDTO {
         this.quantity = quantity;
     }
 
-    public OrderDTO() {
+    public OrderEntity(OrderCreateDTO dto) {
+        this.customerId = dto.getCustomerId();
+        this.customerName = dto.getCustomerName();
+        this.productId = dto.getProductId();
+        this.productName = dto.getProductName();
+        this.productPrice = dto.getProductPrice();
+        this.quantity = dto.getQuantity();
     }
 
-    public OrderDTO(OrderEntity entity) {
-        this.id = entity.getId();
-        this.customerId = entity.getCustomerId();
-        this.customerName = entity.getCustomerName();
-        this.productId = entity.getProductId();
-        this.productName = entity.getProductName();
-        this.productPrice = entity.getProductPrice();
-        this.quantity = entity.getQuantity();
+    public OrderEntity() {
+
     }
 
 }
