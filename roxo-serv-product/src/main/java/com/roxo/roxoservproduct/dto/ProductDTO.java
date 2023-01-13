@@ -32,6 +32,9 @@ public class ProductDTO {
         this.price = price;
     }
 
+    public ProductDTO() {
+    }
+
     public ProductDTO(ProductEntity entity) {
         this.id = entity.getId();
         this.name = entity.getName();

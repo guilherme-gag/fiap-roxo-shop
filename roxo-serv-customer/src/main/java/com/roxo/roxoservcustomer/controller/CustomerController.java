@@ -1,19 +1,45 @@
 package com.roxo.roxoservcustomer.controller;
 
+import com.roxo.roxoservcustomer.dto.CostumerCreateUpdateDTO;
+import com.roxo.roxoservcustomer.dto.CostumerDTO;
+import com.roxo.roxoservcustomer.service.CostumerService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("customers")
 public class CustomerController {
+    private  final CostumerService service;
+
+    public CustomerController(CostumerService service){this.service = service;};
+
     @GetMapping
-    public ResponseEntity<List<Long>> getCustomers() {
-        return ResponseEntity.status(HttpStatus.OK).body(new ArrayList<>());
+    public List<CostumerDTO> list() {
+        return service.listAll();
+    }
+
+    @GetMapping("{id}")
+    public CostumerDTO findById(@PathVariable Long id) {
+        return service.findById(id);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public CostumerDTO create(@RequestBody CostumerCreateUpdateDTO dto) {
+        return service.create(dto);
+    }
+
+    @PutMapping("{id}")
+    public CostumerDTO update(@PathVariable Long id,
+                             @RequestBody CostumerCreateUpdateDTO dto) {
+        return service.update(id, dto);
+    }
+
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long id) {
+        service.delete(id);
     }
 }

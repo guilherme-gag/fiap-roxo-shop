@@ -1,18 +1,18 @@
-package com.roxo.roxoservproduct.entity;
+package com.roxo.roxoservcustomer.entity;
 
-import com.roxo.roxoservproduct.dto.ProductCreateUpdateDTO;
+import com.roxo.roxoservcustomer.dto.CostumerCreateUpdateDTO;
 import jakarta.persistence.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name = "TB_PRODUCTS")
+@Table(name = "TB_COSTUMER")
 @EntityListeners(AuditingEntityListener.class)
-public class ProductEntity {
+public class CostumerEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private Double price;
 
     public Long getId() {
         return id;
@@ -30,19 +30,10 @@ public class ProductEntity {
         this.name = name;
     }
 
-    public Double getPrice() {
-        return price;
+    public CostumerEntity() {
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public ProductEntity() {
-    }
-
-    public ProductEntity(ProductCreateUpdateDTO dto) {
+    public CostumerEntity(CostumerCreateUpdateDTO dto) {
         this.name = dto.getName();
-        this.price = dto.getPrice();
     }
 }
