@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import Modal from "../Modal";
 
 const StyledTable = styled.table`
   border: 1px solid #000;
@@ -31,19 +30,14 @@ const Button = styled.div`
   justify-content: center;
 `
 
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  height: 100%;
-`
-
 function Table({title, model, hasEdit, hasDelete, onEdit, onDelete, openModal}) {
 
     const [properties, setProperties] = useState([])
 
     useEffect(() => {
-        setProperties(Object.getOwnPropertyNames(model[0]))
+        if (model[0]) {
+            setProperties(Object.getOwnPropertyNames(model[0]))
+        }
     }, [model])
 
     return (

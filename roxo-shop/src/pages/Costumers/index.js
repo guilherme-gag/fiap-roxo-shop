@@ -22,12 +22,7 @@ const Form = styled.form`
 `
 
 function Costumers() {
-    const [costumers, setCostumers] = useState([
-        {
-            id: 1,
-            name: "Costumer"
-        },
-    ]);
+    const [costumers, setCostumers] = useState([]);
 
     const [open, setOpen] = useState(false);
     const [openEdit, setOpenEdit] = useState(false);

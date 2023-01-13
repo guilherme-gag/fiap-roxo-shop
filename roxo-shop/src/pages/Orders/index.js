@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import Table from "../../components/Table";
 import styled from "styled-components";
-import {createOrder, deleteOrder, getOrders, updateOrder} from "../../services/orders";
+import {createOrder, deleteOrder, getOrders} from "../../services/orders";
 import Swal from "sweetalert2";
-import {createProduct, getProducts} from "../../services/products";
+import {getProducts} from "../../services/products";
 import Modal from "../../components/Modal";
 import {getCostumers} from "../../services/costumers";
 
@@ -108,18 +108,6 @@ function Orders() {
     const onDelete = (order) => {
         deleteOrder(order.id).then(() => {
             setOrders((prevState) => prevState.filter((o) => o.id !== order.id))
-        }).catch(err => {
-            Swal.fire(
-                err.name,
-                `${err.code}: ${err.message}`,
-                'error'
-            )
-        })
-    }
-
-    const onEdit = (product) => {
-        updateOrder(product).then(() => {
-            searchOrders()
         }).catch(err => {
             Swal.fire(
                 err.name,
