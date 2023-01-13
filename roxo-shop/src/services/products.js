@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const products = axios.create({
-    baseURL: `http://localhost:8082`,
+    baseURL: `http://roxo-serv-product:8080`,
 })
 
 export const getProducts = async () => {

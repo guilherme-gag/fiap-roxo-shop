@@ -2,7 +2,7 @@ import axios from "axios";
 import {products} from "./products";
 
 export const orders = axios.create({
-    baseURL: `http://localhost:8082`,
+    baseURL: `http://roxo-serv-order:8080`,
 })
 
 export const getOrders = async () => {
