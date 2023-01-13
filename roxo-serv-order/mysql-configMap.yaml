@@ -1,0 +1,7 @@
+apiVersion : v1
+kind : ConfigMap
+metadata:
+  name : roxo-serv-order-db-config
+data:
+  host : mysql
+  dbName: db-order
