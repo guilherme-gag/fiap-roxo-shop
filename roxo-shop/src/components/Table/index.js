@@ -41,15 +41,10 @@ const Form = styled.form`
 function Table({title, model, hasEdit, hasDelete, onEdit, onDelete, openModal}) {
 
     const [properties, setProperties] = useState([])
-    const [open, setOpen] = useState(false);
 
     useEffect(() => {
         setProperties(Object.getOwnPropertyNames(model[0]))
     }, [model])
-
-    const showModal = () => {
-        setOpen(true);
-    }
 
     return (
         <Container>
@@ -99,7 +94,7 @@ function Table({title, model, hasEdit, hasDelete, onEdit, onDelete, openModal}) 
 
 Table.propTypes = {
     title: PropTypes.string.isRequired,
-    model: PropTypes.array.isRequired,
+    model: PropTypes.array,
     hasDelete: PropTypes.bool,
     hasEdit: PropTypes.bool,
     onEdit: PropTypes.func,
@@ -108,6 +103,7 @@ Table.propTypes = {
 };
 
 Table.defaultProps = {
+    model: {id: 0},
     hasDelete: false,
     hasEdit: false,
 }

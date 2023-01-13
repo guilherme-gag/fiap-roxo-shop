@@ -4,7 +4,6 @@ import styled from "styled-components";
 import {createCostumer, deleteCostumer, getCostumers, updateCostumer} from "../../services/costumers";
 import Swal from "sweetalert2";
 import Modal from "../../components/Modal";
-import {updateProduct} from "../../services/products";
 
 const Container = styled.div`
   min-height: 100vh;
