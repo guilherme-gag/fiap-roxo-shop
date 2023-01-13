@@ -1,7 +1,7 @@
 apiVersion : v1
 kind : ConfigMap
 metadata:
-  name : roxo-serv-customer-db-config
+  name : roxo-serv-product-db-config
 data:
-  host : customer-mysql
+  host : product-mysql
   dbName: db-customer
