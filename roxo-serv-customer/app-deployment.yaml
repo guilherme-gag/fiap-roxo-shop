@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: webapp11
-          image: guilheag/roxo-serv-customer
+          image: guilheag/roxo-serv-customer2
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
