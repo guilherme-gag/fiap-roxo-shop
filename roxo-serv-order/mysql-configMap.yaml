@@ -3,5 +3,5 @@ kind : ConfigMap
 metadata:
   name : roxo-serv-order-db-config
 data:
-  host : mysql
+  host : order-mysql
   dbName: db-order
