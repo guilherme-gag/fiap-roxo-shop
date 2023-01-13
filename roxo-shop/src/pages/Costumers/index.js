@@ -95,11 +95,15 @@ function Costumers() {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        onCreate({name : newCostumerName})
+        setOpen(false)
+        setOpenEdit(false)
+        onCreate({name: newCostumerName})
     };
 
     const onSubmitUpdate = (event) => {
         event.preventDefault();
+        setOpen(false)
+        setOpenEdit(false)
         onUpdate({id: updateCostumerId, name: updateCostumerName})
     };
 
@@ -121,8 +125,11 @@ function Costumers() {
                     style={{width: "500px"}}
                 >
                     <Form onSubmit={onSubmit}>
-                        <input placeholder="Digite o nome" value={newCostumerName} onChange={(e)=> setNewCostumerName(e.target.value)}/>
-                        <button onClick={() => {}}>Salvar</button>
+                        <input placeholder="Digite o nome" value={newCostumerName}
+                               onChange={(e) => setNewCostumerName(e.target.value)}/>
+                        <button onClick={() => {
+                        }}>Salvar
+                        </button>
                     </Form>
                 </Modal>
             )}

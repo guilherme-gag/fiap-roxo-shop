@@ -106,6 +106,8 @@ function Products() {
 
     const onSubmitUpdate = (event) => {
         event.preventDefault();
+        setOpen(false)
+        setOpenEdit(false)
         onUpdate({id: updateProductId, name: updateProductName, price: updateProductPrice})
     };
 

@@ -124,6 +124,8 @@ function Orders() {
     const onSubmit = (event) => {
         event.preventDefault();
 
+        setOpen(false)
+
         const costumer = costumers.find((costumer) => costumer.id == newOrderCostumer)
         const product = products.find((product) => product.id == newOrderProduct)
 
