@@ -1,7 +1,7 @@
 apiVersion : v1
 kind : ConfigMap
 metadata:
-  name : db-config
+  name : roxo-serv-customer-db-config
 data:
   host : mysql
-  dbName: javatechie
+  dbName: db-customer

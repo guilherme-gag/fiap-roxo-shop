@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: webapp-deployment1
+  name: roxo-serv-customer-deployment
   labels:
-    app: webapp1
+    app: roxo-serv-customer
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: webapp1
+      app: roxo-serv-customer
   template:
     metadata:
       labels:
-        app: webapp1
+        app: roxo-serv-customer
     spec:
       containers:
-        - name: webapp11
-          image: guilheag/roxo-serv-customer2
+        - name: roxo-serv-customer
+          image: guilheag/roxo-serv-customer
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
@@ -24,37 +24,37 @@ spec:
             - name: DB_HOST   # Setting Database host address from configMap
               valueFrom:
                 configMapKeyRef:
-                  name: db-config
+                  name: roxo-serv-customer-db-config
                   key: host
 
             - name: DB_NAME  # Setting Database name from configMap
               valueFrom:
                 configMapKeyRef:
-                  name: db-config
+                  name: roxo-serv-customer-db-config
                   key: dbName
 
             - name: DB_USERNAME  # Setting Database username from Secret
               valueFrom:
                 secretKeyRef:
-                  name: mysql-secrets
+                  name: roxo-serv-customer-mysql-secrets
                   key: username
 
             - name: DB_PASSWORD # Setting Database password from Secret
               valueFrom:
                 secretKeyRef:
-                  name: mysql-secrets
+                  name: roxo-serv-customer-mysql-secrets
                   key: password
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: webapp-service
+  name: roxo-serv-customer
 spec:
   type: NodePort
   selector:
-    app: webapp1
+    app: roxo-serv-customer
   ports:
     - protocol: TCP
       port: 8080
       targetPort: 8080
-      nodePort: 30102
+      nodePort: 30105

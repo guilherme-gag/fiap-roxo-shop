@@ -43,13 +43,13 @@ spec:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom :
                 secretKeyRef :
-                  name : mysql-secrets
+                  name : roxo-serv-customer-mysql-secrets
                   key :  password
 
             - name: MYSQL_DATABASE # Setting Database Name from a 'ConfigMap'
               valueFrom :
                 configMapKeyRef :
-                  name : db-config
+                  name : roxo-serv-customer-db-config
                   key :  dbName
 
 
